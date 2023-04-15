@@ -3,10 +3,9 @@ import path from 'path'
 import { DataSource, DataSourceOptions } from 'typeorm'
 import { DatabaseConfig } from './database.config'
 import { Logger, Provider } from '@nestjs/common'
+import { NestedConfig } from '../../types'
 
-type MappedDatabaseConfig = {
-    [P in keyof DatabaseConfig as `database.${P}`]: DatabaseConfig[P]
-}
+type MappedDatabaseConfig = NestedConfig<'database', DatabaseConfig>
 
 /**
  * The injection token used to provide access to the database connection.
@@ -49,6 +48,7 @@ export const databaseProviders = [
                     ),
                 ],
                 synchronize: process.env.NODE_ENV === 'development',
+                logging: true,
             } as DataSourceOptions)
 
             try {

@@ -9,5 +9,13 @@ async function bootstrap() {
 
     await app.listen(port)
     logger.log(`Server running on port ${port}`)
+
+    const shutdown = () => {
+        logger.log('Shutting down server...')
+        app.close()
+    }
+    process.on('SIGINT', shutdown)
+    process.on('SIGTERM', shutdown)
+    process.on('uncaughtException', shutdown)
 }
 bootstrap()

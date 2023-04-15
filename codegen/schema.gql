@@ -36,6 +36,9 @@ enum MessageType {
 }
 
 type Mutation {
+  """Sends a message to the model and returns the model's response."""
+  sendMessage(content: String!, conversationId: ID!): Message!
+
   """
   Starts a conversation. Conversations can be started with or without the first message.
   """

@@ -1,4 +1,10 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, CreateDateColumn } from 'typeorm'
+import {
+    Entity,
+    Column,
+    PrimaryGeneratedColumn,
+    ManyToOne,
+    CreateDateColumn,
+} from 'typeorm'
 import { ObjectType, Field, ID, Int, registerEnumType } from '@nestjs/graphql'
 import { Conversation } from './conversation.entity'
 

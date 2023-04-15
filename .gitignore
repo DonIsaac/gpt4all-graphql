@@ -36,3 +36,6 @@ lerna-debug.log*
 
 # SQLite Databases
 *.db
+
+# GPT4All Model Binaries
+*.bin
