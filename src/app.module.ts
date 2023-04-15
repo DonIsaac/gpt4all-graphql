@@ -4,9 +4,21 @@ import { GraphQLModule } from '@nestjs/graphql'
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo'
 import { AppController } from './app.controller'
 import { AppService } from './app.service'
+import { DatabaseModule, databaseConfig } from './providers/database'
+import { ConfigModule } from '@nestjs/config'
+import {
+    ConversationModule,
+    ConversationResolver,
+} from './modules/conversation'
 
 @Module({
     imports: [
+        ConfigModule.forRoot({
+            envFilePath: ['.env', '.env.local'],
+            // load: [databaseConfig],
+        }),
+        DatabaseModule,
+        ConversationModule,
         GraphQLModule.forRoot<ApolloDriverConfig>({
             driver: ApolloDriver,
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
