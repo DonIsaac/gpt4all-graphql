@@ -1,5 +1,12 @@
 import { Field, ObjectType } from '@nestjs/graphql'
-import { Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm'
+import {
+    Column,
+    CreateDateColumn,
+    Entity,
+    OneToMany,
+    PrimaryGeneratedColumn,
+    UpdateDateColumn,
+} from 'typeorm'
 import { Message } from './message.entity'
 
 export const MAX_TITLE_LENGTH = 50
