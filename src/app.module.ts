@@ -4,7 +4,7 @@ import { GraphQLModule } from '@nestjs/graphql'
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo'
 import { AppController } from './app.controller'
 import { AppService } from './app.service'
-import { DatabaseModule, databaseConfig } from './providers/database'
+import { DatabaseModule } from './providers/database'
 import { ConfigModule } from '@nestjs/config'
 import {
     ConversationModule,
